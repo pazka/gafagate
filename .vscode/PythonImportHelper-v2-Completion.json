@@ -8,19 +8,19 @@
         "documentation": {}
     },
     {
-        "label": "RGB_Vdim",
-        "importPath": "PyDMXControl.profiles.Generic",
-        "description": "PyDMXControl.profiles.Generic",
-        "isExtraImport": true,
-        "detail": "PyDMXControl.profiles.Generic",
-        "documentation": {}
-    },
-    {
         "label": "StairvilleFixture",
         "importPath": "StairvilleFixture",
         "description": "StairvilleFixture",
         "isExtraImport": true,
         "detail": "StairvilleFixture",
+        "documentation": {}
+    },
+    {
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
         "documentation": {}
     },
     {
@@ -36,7 +36,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\ndmx.close()",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
         "detail": "main",
         "documentation": {}
     },
@@ -45,7 +45,7 @@
         "kind": 5,
         "importPath": "main",
         "description": "main",
-        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\ndmx.close()",
+        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
         "detail": "main",
         "documentation": {}
     },
