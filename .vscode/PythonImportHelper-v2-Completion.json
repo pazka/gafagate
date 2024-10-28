@@ -1,0 +1,61 @@
+[
+    {
+        "label": "OpenDMXController",
+        "importPath": "PyDMXControl.controllers",
+        "description": "PyDMXControl.controllers",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.controllers",
+        "documentation": {}
+    },
+    {
+        "label": "RGB_Vdim",
+        "importPath": "PyDMXControl.profiles.Generic",
+        "description": "PyDMXControl.profiles.Generic",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.profiles.Generic",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "importPath": "StairvilleFixture",
+        "description": "StairvilleFixture",
+        "isExtraImport": true,
+        "detail": "StairvilleFixture",
+        "documentation": {}
+    },
+    {
+        "label": "Vdim",
+        "importPath": "PyDMXControl.profiles.defaults",
+        "description": "PyDMXControl.profiles.defaults",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.profiles.defaults",
+        "documentation": {}
+    },
+    {
+        "label": "dmx",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\ndmx.close()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "fixture",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\ndmx.close()",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "kind": 6,
+        "importPath": "StairvilleFixture",
+        "description": "StairvilleFixture",
+        "peekOfCode": "class StairvilleFixture(Vdim):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        self._register_channel('dimmer', vdim=True)\n        self._register_channel_aliases('dimmer', 'dim')\n        self._register_channel('Strobe')\n        self._register_channel_aliases('strobe', 's')\n        self._register_channel('red')\n        self._register_channel_aliases('red', 'r')\n        self._register_channel('green')",
+        "detail": "StairvilleFixture",
+        "documentation": {}
+    }
+]
