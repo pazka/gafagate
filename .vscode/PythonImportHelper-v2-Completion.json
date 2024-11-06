@@ -1,10 +1,34 @@
 [
     {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "OpenDMXController",
         "importPath": "PyDMXControl.controllers",
         "description": "PyDMXControl.controllers",
         "isExtraImport": true,
         "detail": "PyDMXControl.controllers",
+        "documentation": {}
+    },
+    {
+        "label": "OpenDMXController",
+        "importPath": "PyDMXControl.controllers",
+        "description": "PyDMXControl.controllers",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.controllers",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "importPath": "StairvilleFixture",
+        "description": "StairvilleFixture",
+        "isExtraImport": true,
+        "detail": "StairvilleFixture",
         "documentation": {}
     },
     {
@@ -24,7 +48,15 @@
         "documentation": {}
     },
     {
-        "label": "Vdim",
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "Fixture",
         "importPath": "PyDMXControl.profiles.defaults",
         "description": "PyDMXControl.profiles.defaults",
         "isExtraImport": true,
@@ -34,19 +66,46 @@
     {
         "label": "dmx",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
-        "detail": "main",
+        "importPath": "cycle",
+        "description": "cycle",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ncolors = [[255,0,0,0],[0,255,0,0],[0,0,255,0]]\nfixture.dim(255,1)\nwhile True:\n    for color in colors:\n        print(\"color :\",color)\n        fixture.color(color,1)\n        sleep(1)",
+        "detail": "cycle",
         "documentation": {}
     },
     {
         "label": "fixture",
         "kind": 5,
-        "importPath": "main",
-        "description": "main",
+        "importPath": "cycle",
+        "description": "cycle",
+        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ncolors = [[255,0,0,0],[0,255,0,0],[0,0,255,0]]\nfixture.dim(255,1)\nwhile True:\n    for color in colors:\n        print(\"color :\",color)\n        fixture.color(color,1)\n        sleep(1)",
+        "detail": "cycle",
+        "documentation": {}
+    },
+    {
+        "label": "colors",
+        "kind": 5,
+        "importPath": "cycle",
+        "description": "cycle",
+        "peekOfCode": "colors = [[255,0,0,0],[0,255,0,0],[0,0,255,0]]\nfixture.dim(255,1)\nwhile True:\n    for color in colors:\n        print(\"color :\",color)\n        fixture.color(color,1)\n        sleep(1)",
+        "detail": "cycle",
+        "documentation": {}
+    },
+    {
+        "label": "dmx",
+        "kind": 5,
+        "importPath": "debug",
+        "description": "debug",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
+        "detail": "debug",
+        "documentation": {}
+    },
+    {
+        "label": "fixture",
+        "kind": 5,
+        "importPath": "debug",
+        "description": "debug",
         "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture\")\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
-        "detail": "main",
+        "detail": "debug",
         "documentation": {}
     },
     {
@@ -54,7 +113,7 @@
         "kind": 6,
         "importPath": "StairvilleFixture",
         "description": "StairvilleFixture",
-        "peekOfCode": "class StairvilleFixture(Vdim):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        self._register_channel('dimmer', vdim=True)\n        self._register_channel_aliases('dimmer', 'dim')\n        self._register_channel('Strobe')\n        self._register_channel_aliases('strobe', 's')\n        self._register_channel('red')\n        self._register_channel_aliases('red', 'r')\n        self._register_channel('green')",
+        "peekOfCode": "class StairvilleFixture(Fixture):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        self._register_channel('dimmer')\n        self._register_channel_aliases('dimmer', 'dim')\n        self._register_channel('Strobe')\n        self._register_channel_aliases('strobe', 'st')\n        self._register_channel('red')\n        self._register_channel_aliases('red', 'r')\n        self._register_channel('green')",
         "detail": "StairvilleFixture",
         "documentation": {}
     }

@@ -21,18 +21,18 @@ Stairville 132 LED RGB DMX
 |6|6-255| Sound control ON increasing sensitivity|
 """
 
-from PyDMXControl.profiles.defaults import Vdim
+from PyDMXControl.profiles.defaults import Fixture
 
 
-class StairvilleFixture(Vdim):
+class StairvilleFixture(Fixture):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         
-        self._register_channel('dimmer', vdim=True)
+        self._register_channel('dimmer')
         self._register_channel_aliases('dimmer', 'dim')
         self._register_channel('Strobe')
-        self._register_channel_aliases('strobe', 's')
+        self._register_channel_aliases('strobe', 'st')
         self._register_channel('red')
         self._register_channel_aliases('red', 'r')
         self._register_channel('green')
@@ -40,4 +40,4 @@ class StairvilleFixture(Vdim):
         self._register_channel('blue')
         self._register_channel_aliases('blue', 'b')
         self._register_channel('sound')
-        self._register_channel_aliases('sound', 's')
+        self._register_channel_aliases('sound', 'so')
