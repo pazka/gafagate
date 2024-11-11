@@ -72,6 +72,38 @@
         "documentation": {}
     },
     {
+        "label": "DataHelper",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataDate",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataPoint",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataHelper",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
         "label": "datetime",
         "kind": 6,
         "isExtraImport": true,
@@ -110,6 +142,22 @@
         "description": "datetime",
         "isExtraImport": true,
         "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
         "documentation": {}
     },
     {
@@ -166,6 +214,14 @@
         "description": "openpyxl",
         "isExtraImport": true,
         "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "Cell",
+        "importPath": "openpyxl.cell",
+        "description": "openpyxl.cell",
+        "isExtraImport": true,
+        "detail": "openpyxl.cell",
         "documentation": {}
     },
     {
@@ -355,6 +411,14 @@
         "documentation": {}
     },
     {
+        "label": "InflationData",
+        "importPath": "data_process.data_inflation",
+        "description": "data_process.data_inflation",
+        "isExtraImport": true,
+        "detail": "data_process.data_inflation",
+        "documentation": {}
+    },
+    {
         "label": "Tuple",
         "importPath": "typing",
         "description": "typing",
@@ -381,11 +445,20 @@
         "documentation": {}
     },
     {
+        "label": "InflationData",
+        "kind": 6,
+        "importPath": "data_process.data_inflation",
+        "description": "data_process.data_inflation",
+        "peekOfCode": "class InflationData(DataHelper):\n    def __init__(self, wb: Workbook):\n        sheet = wb[\"Inflation\"]\n        # yearly data from 2011 to 2023\n        raw_data: list[list[Cell]] = sheet[\"B3:B16\"]\n        yearly_data: list[DataPoint] = []\n        for i, data in enumerate(raw_data):\n            if type(data[0].value) == str:\n                value = float(data[0].value.replace(\"%\", \"\"))\n            else:",
+        "detail": "data_process.data_inflation",
+        "documentation": {}
+    },
+    {
         "label": "RevenueData",
         "kind": 6,
         "importPath": "data_process.data_revenue",
         "description": "data_process.data_revenue",
-        "peekOfCode": "class RevenueData(DataHelper):\n    def __init__(self, wb: Workbook):\n        sheet = wb[\"data_revenue\"]\n        # yearly data from 2011 to 2023\n        raw_data: list[list[Cell]] = sheet[\"G2:G14\"]\n        yearly_data: list[DataPoint] = []\n        for i, data in enumerate(raw_data):\n            if type(data[0].value) == str:\n                value = float(data[0].value.replace(\",\", \"\"))\n            else:",
+        "peekOfCode": "class RevenueData(DataHelper):\n    def __init__(self, wb: Workbook):\n        sheet = wb[\"Revenue\"]\n        # yearly data from 2011 to 2023\n        raw_data: list[list[Cell]] = sheet[\"G2:G14\"]\n        yearly_data: list[DataPoint] = []\n        for i, data in enumerate(raw_data):\n            if type(data[0].value) == str:\n                value = float(data[0].value.replace(\",\", \"\"))\n            else:",
         "detail": "data_process.data_revenue",
         "documentation": {}
     },
@@ -502,7 +575,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\ncolor_transition_time = 1\nwhile True:",
         "detail": "data",
         "documentation": {}
     },
@@ -511,7 +584,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)",
         "detail": "data",
         "documentation": {}
     },
@@ -520,7 +593,16 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "fines_data = FinesData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]",
+        "peekOfCode": "fines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):",
+        "detail": "data",
+        "documentation": {}
+    },
+    {
+        "label": "inflation_data",
+        "kind": 5,
+        "importPath": "data",
+        "description": "data",
+        "peekOfCode": "inflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]",
         "detail": "data",
         "documentation": {}
     },
@@ -529,7 +611,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "dim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,",
+        "peekOfCode": "dim_speed = 0.01\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,",
         "detail": "data",
         "documentation": {}
     },
@@ -538,7 +620,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "color_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,\n            0",
+        "peekOfCode": "color_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,",
         "detail": "data",
         "documentation": {}
     },
