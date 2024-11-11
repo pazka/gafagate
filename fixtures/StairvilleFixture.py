@@ -42,5 +42,7 @@ class StairvilleFixture(Fixture):
         self._register_channel('sound')
         self._register_channel_aliases('sound', 'so')
 
-    def simple_color(self, color: tuple[int, int, int]):
+    def simple_color(self, _color: tuple[int, int, int]):
+        # only used for blue
+        color = [0, 0, _color[2]]
         self.color([color[0], color[1], color[2]], 1)
