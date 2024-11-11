@@ -75,8 +75,8 @@ class ChauvetFixture(Fixture):
             self._register_channel_aliases('dimmer_speed', 'ds')
 
     def simple_color(self, color: tuple[int, int, int]):
+        print("CHAUVET : mode & color: ", self.mode, " & ", color)
         if self.mode == 4:
-            self.color([color[0], color[1], color[2], color[3]], 1)
+            self.color([color[0], color[1], color[2]], 1)
         elif self.mode == 9:
-            self.color([color[0], color[1], color[2],
-                       color[3], 0, 0, 0, 0, 0], 1)
+            self.color([color[0], color[1], color[2]], 1)

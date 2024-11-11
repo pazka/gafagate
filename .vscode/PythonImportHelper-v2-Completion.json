@@ -25,6 +25,14 @@
         "documentation": {}
     },
     {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "DataHelper",
         "importPath": "data_process.data_helper",
         "description": "data_process.data_helper",
@@ -50,6 +58,14 @@
     },
     {
         "label": "DataPoint",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataHelper",
         "importPath": "data_process.data_helper",
         "description": "data_process.data_helper",
         "isExtraImport": true,
@@ -129,12 +145,12 @@
         "documentation": {}
     },
     {
-        "label": "os",
+        "label": "pytest",
         "kind": 6,
         "isExtraImport": true,
-        "importPath": "os",
-        "description": "os",
-        "detail": "os",
+        "importPath": "pytest",
+        "description": "pytest",
+        "detail": "pytest",
         "documentation": {}
     },
     {
@@ -146,6 +162,15 @@
         "documentation": {}
     },
     {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
         "label": "RevenueData",
         "importPath": "data_process.data_revenue",
         "description": "data_process.data_revenue",
@@ -247,14 +272,6 @@
         "description": "fixtures.ChauvetFixture",
         "isExtraImport": true,
         "detail": "fixtures.ChauvetFixture",
-        "documentation": {}
-    },
-    {
-        "label": "fixture",
-        "importPath": "cycle",
-        "description": "cycle",
-        "isExtraImport": true,
-        "detail": "cycle",
         "documentation": {}
     },
     {
@@ -262,7 +279,7 @@
         "kind": 6,
         "importPath": "data_process.data_helper",
         "description": "data_process.data_helper",
-        "peekOfCode": "class DataHelper():\n    def __init__(self, data):\n        self.data: tuple[date, float] = data\n        self.min_date: date = None\n        self.max_date: date = None\n        self.min_value: float = None\n        self.max_value: float = None\n        self.data.sort(key=lambda x: x[0])\n        self.min_date = self.data[0][0]\n        self.max_date = self.data[-1][0]",
+        "peekOfCode": "class DataHelper():\n    def __init__(self, data):\n        self.data: list[DataPoint] = data\n        self.min_date: date = None\n        self.max_date: date = None\n        self.min_value: float = None\n        self.max_value: float = None\n        self.data.sort(key=lambda x: x[0])\n        self.min_date = self.data[0][0]\n        self.max_date = self.data[-1][0]",
         "detail": "data_process.data_helper",
         "documentation": {}
     },
@@ -271,7 +288,7 @@
         "kind": 6,
         "importPath": "data_process.data_revenue",
         "description": "data_process.data_revenue",
-        "peekOfCode": "class RevenueData(DataHelper):\n    def __init__(self, wb: Workbook):\n        sheet = wb[\"data_revenue\"]\n        # yearly data from 2011 to 2023\n        raw_data: list[list[Cell]] = sheet[\"G2:G14\"]\n        yearly_data: list[DataPoint] = []\n        for i in range(0, len(raw_data)):\n            if raw_data[i][0].value is not None:\n                yearly_data.append((date(2011+i, 1, 1), raw_data[i][0].value))\n        monthly_data: list[DataPoint] = []",
+        "peekOfCode": "class RevenueData(DataHelper):\n    def __init__(self, wb: Workbook):\n        sheet = wb[\"data_revenue\"]\n        # yearly data from 2011 to 2023\n        raw_data: list[list[Cell]] = sheet[\"G2:G14\"]\n        yearly_data: list[DataPoint] = []\n        for i, data in enumerate(raw_data):\n            if type(data[0].value) == str:\n                value = float(data[0].value.replace(\",\", \"\"))\n            else:",
         "detail": "data_process.data_revenue",
         "documentation": {}
     },
@@ -291,6 +308,51 @@
         "description": "fixtures.StairvilleFixture",
         "peekOfCode": "class StairvilleFixture(Fixture):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        self._register_channel('dimmer')\n        self._register_channel_aliases('dimmer', 'dim')\n        self._register_channel('Strobe')\n        self._register_channel_aliases('strobe', 'st')\n        self._register_channel('red')\n        self._register_channel_aliases('red', 'r')\n        self._register_channel('green')",
         "detail": "fixtures.StairvilleFixture",
+        "documentation": {}
+    },
+    {
+        "label": "test_initialization",
+        "kind": 2,
+        "importPath": "tests.test_data_helper",
+        "description": "tests.test_data_helper",
+        "peekOfCode": "def test_initialization():\n    data = [\n        (date(2018, 1, 1), 10.0),\n        (date(2020, 6, 1), 20.0),\n        (date(2021, 6, 1), 30.0),\n        (date(2023, 6, 1), 40.0)\n    ]\n    helper = DataHelper(data)\n    assert helper.min_date == date(2020, 6, 1)\n    assert helper.max_date == date(2023, 6, 1)",
+        "detail": "tests.test_data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "test_get_value",
+        "kind": 2,
+        "importPath": "tests.test_data_helper",
+        "description": "tests.test_data_helper",
+        "peekOfCode": "def test_get_value():\n    data = [\n        (date(2020, 6, 1), 20.0),\n        (date(2021, 6, 1), 30.0)\n    ]\n    helper = DataHelper(data)\n    assert helper.get_value(date(2020, 6, 1)) == 20.0\n    assert helper.get_value(date(2021, 6, 1)) == 30.0\n    assert helper.get_value(date(2019, 1, 1)) is None\ndef test_to_uv():",
+        "detail": "tests.test_data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "test_to_uv",
+        "kind": 2,
+        "importPath": "tests.test_data_helper",
+        "description": "tests.test_data_helper",
+        "peekOfCode": "def test_to_uv():\n    data = [\n        (date(2020, 6, 1), 20.0),\n        (date(2021, 6, 1), 30.0),\n        (date(2022, 6, 1), 40.0)\n    ]\n    helper = DataHelper(data)\n    assert helper.to_uv((date(2020, 6, 1), 20.0)) == 0.0\n    assert helper.to_uv((date(2022, 6, 1), 40.0)) == 1.0\n    assert helper.to_uv((date(2021, 6, 1), 30.0)) == 0.5",
+        "detail": "tests.test_data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "test_filter_dates",
+        "kind": 2,
+        "importPath": "tests.test_data_helper",
+        "description": "tests.test_data_helper",
+        "peekOfCode": "def test_filter_dates():\n    data = [\n        (date(2018, 1, 1), 10.0),\n        (date(2020, 6, 1), 20.0),\n        (date(2021, 6, 1), 30.0),\n        (date(2023, 6, 1), 40.0)\n    ]\n    helper = DataHelper(data)\n    helper.filter_dates(date(2020, 1, 1), date(2021, 12, 31))\n    assert len(helper.data) == 2",
+        "detail": "tests.test_data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "test_clamp_values",
+        "kind": 2,
+        "importPath": "tests.test_data_helper",
+        "description": "tests.test_data_helper",
+        "peekOfCode": "def test_clamp_values():\n    data = [\n        (date(2020, 6, 1), 20.0),\n        (date(2021, 6, 1), 30.0),\n        (date(2022, 6, 1), 40.0)\n    ]\n    helper = DataHelper(data)\n    helper.clamp_values(25.0, 35.0)\n    assert helper.data == [\n        (date(2020, 6, 1), 25.0),",
+        "detail": "tests.test_data_helper",
         "documentation": {}
     },
     {
@@ -316,16 +378,7 @@
         "kind": 5,
         "importPath": "cycle",
         "description": "cycle",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-1\")\ncolors = [[255, 0, 0, 0], [0, 255, 0, 0], [0, 0, 255, 0]]\nfixture.dim(255, 1)\nwhile True:\n    for color in colors:\n        print(\"color :\", color)\n        fixture.color(color, 1)\n        sleep(1)",
-        "detail": "cycle",
-        "documentation": {}
-    },
-    {
-        "label": "fixture",
-        "kind": 5,
-        "importPath": "cycle",
-        "description": "cycle",
-        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-1\")\ncolors = [[255, 0, 0, 0], [0, 255, 0, 0], [0, 0, 255, 0]]\nfixture.dim(255, 1)\nwhile True:\n    for color in colors:\n        print(\"color :\", color)\n        fixture.color(color, 1)\n        sleep(1)",
+        "peekOfCode": "dmx = OpenDMXController()\nfix: StairvilleFixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfix1: ChauvetFixture = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\ncolors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]\nfix.dim(255, 1)\nfix1.dim(255, 1)\nwhile True:\n    for color in colors:",
         "detail": "cycle",
         "documentation": {}
     },
@@ -334,7 +387,7 @@
         "kind": 5,
         "importPath": "cycle",
         "description": "cycle",
-        "peekOfCode": "colors = [[255, 0, 0, 0], [0, 255, 0, 0], [0, 0, 255, 0]]\nfixture.dim(255, 1)\nwhile True:\n    for color in colors:\n        print(\"color :\", color)\n        fixture.color(color, 1)\n        sleep(1)",
+        "peekOfCode": "colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]\nfix.dim(255, 1)\nfix1.dim(255, 1)\nwhile True:\n    for color in colors:\n        print(\"color :\", color)\n        fix.simple_color(color)\n        fix1.simple_color(color)\n        sleep(0.001)",
         "detail": "cycle",
         "documentation": {}
     },
@@ -343,7 +396,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture: StairvilleFixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2: ChauvetFixture = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\n# os test that file exists\nif os.path.exists(\"data/data.xlsx\"):\n    print(\"File exists\")\nelse:\n    print(\"File does not exist\")",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture1: StairvilleFixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2: ChauvetFixture = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\n# os test that file exists\nif os.path.exists(\"data/data.xlsx\"):\n    print(\"File exists\")\nelse:\n    print(\"File does not exist\")",
         "detail": "data",
         "documentation": {}
     },
@@ -352,7 +405,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfixture1.dim(255, 1)\nfixture2.dim(255, 1)\nwhile True:\n    for data_point in revenue_data:\n        print(\"data point: \", data_point)\n        uv = revenue_data.to_uv(data_point)\n        uv = int(uv)\n        print(\"uv: \", uv)",
         "detail": "data",
         "documentation": {}
     },
@@ -361,7 +414,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "revenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nfixture1.dim(255, 1)\nfixture2.dim(255, 1)\nwhile True:\n    for data_point in revenue_data:\n        print(\"data point: \", data_point)\n        uv = revenue_data.to_uv(data_point)\n        uv = int(uv)\n        print(\"uv: \", uv)\n        fixture1.simple_color((uv*255, 0, 0))",
         "detail": "data",
         "documentation": {}
     },

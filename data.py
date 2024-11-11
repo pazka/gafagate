@@ -9,7 +9,7 @@ from data_process.data_revenue import RevenueData
 
 dmx = OpenDMXController()
 
-fixture: StairvilleFixture = dmx.add_fixture(
+fixture1: StairvilleFixture = dmx.add_fixture(
     StairvilleFixture, name="StairvilleFixture-2", start_channel=10)
 
 fixture2: ChauvetFixture = dmx.add_fixture(
@@ -26,12 +26,18 @@ else:
 wb = load_workbook(filename="data/data.xlsx", read_only=True, data_only=True)
 revenue_data = RevenueData(wb)
 
+fixture1.dim(255, 1)
+fixture2.dim(255, 1)
+
 
 while True:
     for data_point in revenue_data:
-        uv = revenue_data.to_uv(data_point[1])
-        fixture.simple_color([uv*255, 0, 0, 0], 1)
-        fixture2.simple_color([uv*255, 0, 0])
+        print("data point: ", data_point)
+        uv = revenue_data.to_uv(data_point)
+        uv = int(uv)
+        print("uv: ", uv)
+        fixture1.simple_color((uv*255, 0, 0))
+        fixture2.simple_color((uv*255, 0, 0))
         sleep(1)
 
 dmx.close()

@@ -12,17 +12,18 @@ class RevenueData(DataHelper):
         raw_data: list[list[Cell]] = sheet["G2:G14"]
         yearly_data: list[DataPoint] = []
 
-        for i in range(0, len(raw_data)):
-            if raw_data[i][0].value is not None:
-                yearly_data.append((date(2011+i, 1, 1), raw_data[i][0].value))
+        for i, data in enumerate(raw_data):
+            if type(data[0].value) == str:
+                value = float(data[0].value.replace(",", ""))
+            else:
+                value = data[0].value
+
+            yearly_data.append((date(2011+i, 1, 1), value))
 
         monthly_data: list[DataPoint] = []
         for year_data in yearly_data:
             year = year_data[0].year
-            if type(year_data[1]) == str:
-                revenue = float(year_data[1].replace(",", ""))
-            else:
-                revenue = year_data[1]
+            revenue = year_data[1]
             month_revenue = revenue/12
 
             for j in range(1, 13):

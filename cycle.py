@@ -3,18 +3,23 @@ from PyDMXControl.controllers import OpenDMXController
 from fixtures.StairvilleFixture import StairvilleFixture
 from openpyxl import Workbook
 from fixtures.ChauvetFixture import ChauvetFixture
-from cycle import fixture
 
 
 dmx = OpenDMXController()
-fixture = dmx.add_fixture(StairvilleFixture, name="StairvilleFixture-1")
+fix: StairvilleFixture = dmx.add_fixture(
+    StairvilleFixture, name="StairvilleFixture-2", start_channel=10)
 
-colors = [[255, 0, 0, 0], [0, 255, 0, 0], [0, 0, 255, 0]]
+fix1: ChauvetFixture = dmx.add_fixture(
+    ChauvetFixture, name="ChauvetFixture", start_channel=1, mode=9)
 
-fixture.dim(255, 1)
+colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255)]
+
+fix.dim(255, 1)
+fix1.dim(255, 1)
 
 while True:
     for color in colors:
         print("color :", color)
-        fixture.color(color, 1)
-        sleep(1)
+        fix.simple_color(color)
+        fix1.simple_color(color)
+        sleep(0.001)

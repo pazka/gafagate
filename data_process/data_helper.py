@@ -7,7 +7,7 @@ type DataPoint = tuple[DataDate, float]
 
 class DataHelper():
     def __init__(self, data):
-        self.data: tuple[date, float] = data
+        self.data: list[DataPoint] = data
         self.min_date: date = None
         self.max_date: date = None
         self.min_value: float = None
@@ -25,10 +25,13 @@ class DataHelper():
     def __getitem__(self, index: int) -> DataPoint:
         return self.data[index]
 
-    def to_uv(self, data_point: DataPoint) -> float:
+    def __iter__(self):
+        return iter(self.data)
+
+    def to_uv(self, data_point: DataPoint) -> float | None:
         return (data_point[1] - self.min_value) / (self.max_value - self.min_value)
 
-    def get_value(self, date: DataDate) -> float:
+    def get_value(self, date: DataDate) -> float | None:
         for i in range(len(self.data)):
             if self.data[i][0] == date:
                 return self.data[i][1]
