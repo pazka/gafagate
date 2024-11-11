@@ -36,7 +36,7 @@ fixture2.dim(255, 1)
 
 dim_speed = 0.01
 #color_transition_time = 1
-color_transition_time = 0.1
+color_transition_time = 1
 
 while True:
     prev_color = (0, 0, 0)
@@ -60,21 +60,18 @@ while True:
         print("OECD members Inflation Rate (%): ", round(inflation_data_point[1], 2))
         print("Color (R,G,B): ", (round(new_color_uv[0]), round(new_color_uv[1]), round(new_color_uv[2])))
         # display next color gradually
-        counter = 0
-        while counter < color_transition_time:
-            counter = round(counter + dim_speed,5)
-            transition_color = interpolate(prev_color, new_color_uv, counter / color_transition_time)
-            if(transition_color[0] < 0):
-                transition_color = (0, transition_color[1], transition_color[2])
-            if(transition_color[1] < 0):
-                transition_color = (transition_color[0], 0, transition_color[2])
-            if(transition_color[2] < 0):
-                transition_color = (transition_color[0], transition_color[1], 0)
+        for i in range(0,3):
+            counter = 0
+            while counter < color_transition_time:
+                counter = round(counter + dim_speed,5)
+                transition_color = interpolate(prev_color, new_color_uv, counter / color_transition_time)
+                display_color = [0,0,0]
+                display_color[i] = transition_color[i]
 
-            #print("Transition Color (R,G,B): ", (round(transition_color[0]), round(transition_color[1]), round(transition_color[2])))
-            fixture1.simple_color(transition_color)
-            fixture2.simple_color(transition_color)
-            sleep(dim_speed)
+                #print("Transition Color (R,G,B): ", (round(transition_color[0]), round(transition_color[1]), round(transition_color[2])))
+                fixture1.simple_color(display_color)
+                fixture2.simple_color(display_color)
+                sleep(dim_speed)
 
         prev_color = new_color_uv
 

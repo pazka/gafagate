@@ -575,7 +575,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 0.1",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1",
         "detail": "data",
         "documentation": {}
     },
@@ -584,7 +584,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 0.1\nwhile True:",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:",
         "detail": "data",
         "documentation": {}
     },
@@ -593,7 +593,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "fines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 0.1\nwhile True:\n    prev_color = (0, 0, 0)",
+        "peekOfCode": "fines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)",
         "detail": "data",
         "documentation": {}
     },
@@ -602,7 +602,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "inflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 0.1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):",
+        "peekOfCode": "inflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):",
         "detail": "data",
         "documentation": {}
     },
@@ -611,7 +611,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "dim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 0.1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (",
+        "peekOfCode": "dim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (",
         "detail": "data",
         "documentation": {}
     },
@@ -620,7 +620,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "#color_transition_time = 1\ncolor_transition_time = 0.1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,",
+        "peekOfCode": "#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,",
         "detail": "data",
         "documentation": {}
     },
@@ -629,7 +629,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "color_transition_time = 0.1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,",
+        "peekOfCode": "color_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,",
         "detail": "data",
         "documentation": {}
     },
