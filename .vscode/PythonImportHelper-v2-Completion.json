@@ -1,5 +1,14 @@
 [
     {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
         "label": "date",
         "importPath": "datetime",
         "description": "datetime",
@@ -17,6 +26,30 @@
     },
     {
         "label": "DataHelper",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataHelper",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataDate",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "isExtraImport": true,
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataPoint",
         "importPath": "data_process.data_helper",
         "description": "data_process.data_helper",
         "isExtraImport": true,
@@ -56,27 +89,19 @@
         "documentation": {}
     },
     {
-        "label": "DataHelper",
-        "importPath": "data_helper",
-        "description": "data_helper",
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
         "isExtraImport": true,
-        "detail": "data_helper",
+        "detail": "openpyxl",
         "documentation": {}
     },
     {
-        "label": "DataDate",
-        "importPath": "data_helper",
-        "description": "data_helper",
+        "label": "Cell",
+        "importPath": "openpyxl.cell",
+        "description": "openpyxl.cell",
         "isExtraImport": true,
-        "detail": "data_helper",
-        "documentation": {}
-    },
-    {
-        "label": "DataPoint",
-        "importPath": "data_helper",
-        "description": "data_helper",
-        "isExtraImport": true,
-        "detail": "data_helper",
+        "detail": "openpyxl.cell",
         "documentation": {}
     },
     {
@@ -96,91 +121,20 @@
         "documentation": {}
     },
     {
-        "label": "sleep",
-        "importPath": "time",
-        "description": "time",
+        "label": "os",
+        "kind": 6,
         "isExtraImport": true,
-        "detail": "time",
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
         "documentation": {}
     },
     {
-        "label": "sleep",
-        "importPath": "time",
-        "description": "time",
+        "label": "fixture",
+        "importPath": "pytest",
+        "description": "pytest",
         "isExtraImport": true,
-        "detail": "time",
-        "documentation": {}
-    },
-    {
-        "label": "OpenDMXController",
-        "importPath": "PyDMXControl.controllers",
-        "description": "PyDMXControl.controllers",
-        "isExtraImport": true,
-        "detail": "PyDMXControl.controllers",
-        "documentation": {}
-    },
-    {
-        "label": "OpenDMXController",
-        "importPath": "PyDMXControl.controllers",
-        "description": "PyDMXControl.controllers",
-        "isExtraImport": true,
-        "detail": "PyDMXControl.controllers",
-        "documentation": {}
-    },
-    {
-        "label": "OpenDMXController",
-        "importPath": "PyDMXControl.controllers",
-        "description": "PyDMXControl.controllers",
-        "isExtraImport": true,
-        "detail": "PyDMXControl.controllers",
-        "documentation": {}
-    },
-    {
-        "label": "StairvilleFixture",
-        "importPath": "StairvilleFixture",
-        "description": "StairvilleFixture",
-        "isExtraImport": true,
-        "detail": "StairvilleFixture",
-        "documentation": {}
-    },
-    {
-        "label": "StairvilleFixture",
-        "importPath": "StairvilleFixture",
-        "description": "StairvilleFixture",
-        "isExtraImport": true,
-        "detail": "StairvilleFixture",
-        "documentation": {}
-    },
-    {
-        "label": "StairvilleFixture",
-        "importPath": "StairvilleFixture",
-        "description": "StairvilleFixture",
-        "isExtraImport": true,
-        "detail": "StairvilleFixture",
-        "documentation": {}
-    },
-    {
-        "label": "ChauvetFixture",
-        "importPath": "ChauvetFixture",
-        "description": "ChauvetFixture",
-        "isExtraImport": true,
-        "detail": "ChauvetFixture",
-        "documentation": {}
-    },
-    {
-        "label": "ChauvetFixture",
-        "importPath": "ChauvetFixture",
-        "description": "ChauvetFixture",
-        "isExtraImport": true,
-        "detail": "ChauvetFixture",
-        "documentation": {}
-    },
-    {
-        "label": "ChauvetFixture",
-        "importPath": "ChauvetFixture",
-        "description": "ChauvetFixture",
-        "isExtraImport": true,
-        "detail": "ChauvetFixture",
+        "detail": "pytest",
         "documentation": {}
     },
     {
@@ -189,6 +143,102 @@
         "description": "data_process.data_revenue",
         "isExtraImport": true,
         "detail": "data_process.data_revenue",
+        "documentation": {}
+    },
+    {
+        "label": "RevenueData",
+        "importPath": "data_process.data_revenue",
+        "description": "data_process.data_revenue",
+        "isExtraImport": true,
+        "detail": "data_process.data_revenue",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "OpenDMXController",
+        "importPath": "PyDMXControl.controllers",
+        "description": "PyDMXControl.controllers",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.controllers",
+        "documentation": {}
+    },
+    {
+        "label": "OpenDMXController",
+        "importPath": "PyDMXControl.controllers",
+        "description": "PyDMXControl.controllers",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.controllers",
+        "documentation": {}
+    },
+    {
+        "label": "OpenDMXController",
+        "importPath": "PyDMXControl.controllers",
+        "description": "PyDMXControl.controllers",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.controllers",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "importPath": "StairvilleFixture",
+        "description": "StairvilleFixture",
+        "isExtraImport": true,
+        "detail": "StairvilleFixture",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "importPath": "StairvilleFixture",
+        "description": "StairvilleFixture",
+        "isExtraImport": true,
+        "detail": "StairvilleFixture",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "importPath": "StairvilleFixture",
+        "description": "StairvilleFixture",
+        "isExtraImport": true,
+        "detail": "StairvilleFixture",
+        "documentation": {}
+    },
+    {
+        "label": "ChauvetFixture",
+        "importPath": "ChauvetFixture",
+        "description": "ChauvetFixture",
+        "isExtraImport": true,
+        "detail": "ChauvetFixture",
+        "documentation": {}
+    },
+    {
+        "label": "ChauvetFixture",
+        "importPath": "ChauvetFixture",
+        "description": "ChauvetFixture",
+        "isExtraImport": true,
+        "detail": "ChauvetFixture",
+        "documentation": {}
+    },
+    {
+        "label": "ChauvetFixture",
+        "importPath": "ChauvetFixture",
+        "description": "ChauvetFixture",
+        "isExtraImport": true,
+        "detail": "ChauvetFixture",
         "documentation": {}
     },
     {
@@ -205,17 +255,44 @@
         "kind": 6,
         "importPath": "data_process.data_revenue",
         "description": "data_process.data_revenue",
-        "peekOfCode": "class RevenueData(DataHelper):\n    def __init__(self, wb: Workbook):\n        sheet = wb[\"data_revenue\"]\n        # yearly data from 2011 to 2023\n        raw_data: list[DataPoint] = sheet[\"G2:G14\"]\n        yearly_data: list[DataPoint] = []\n        for i in range(0, len(raw_data)):\n            yearly_data = (date(2011+i, 1, 1), raw_data[i])\n        monthly_data: list[DataPoint] = []\n        for i in range(0, len(yearly_data-1)):",
+        "peekOfCode": "class RevenueData(DataHelper):\n    def __init__(self, wb: Workbook):\n        sheet = wb[\"data_revenue\"]\n        # yearly data from 2011 to 2023\n        raw_data: list[list[Cell]] = sheet[\"G2:G14\"]\n        yearly_data: list[DataPoint] = []\n        for i in range(0, len(raw_data)):\n            if raw_data[i][0].value is not None:\n                yearly_data.append((date(2011+i, 1, 1), raw_data[i][0].value))\n        monthly_data: list[DataPoint] = []",
         "detail": "data_process.data_revenue",
         "documentation": {}
     },
     {
         "label": "ChauvetFixture",
         "kind": 6,
-        "importPath": "ChauvetFixture",
-        "description": "ChauvetFixture",
+        "importPath": "fixtures.ChauvetFixture",
+        "description": "fixtures.ChauvetFixture",
         "peekOfCode": "class ChauvetFixture(Fixture):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        # get mode from args\n        self.mode = kwargs.get('mode', 4)\n        if self.mode == 4:\n            self._register_channel('red')\n            self._register_channel_aliases('red', 'r')\n            self._register_channel('green')\n            self._register_channel_aliases('green', 'g')",
-        "detail": "ChauvetFixture",
+        "detail": "fixtures.ChauvetFixture",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "kind": 6,
+        "importPath": "fixtures.StairvilleFixture",
+        "description": "fixtures.StairvilleFixture",
+        "peekOfCode": "class StairvilleFixture(Fixture):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        self._register_channel('dimmer')\n        self._register_channel_aliases('dimmer', 'dim')\n        self._register_channel('Strobe')\n        self._register_channel_aliases('strobe', 'st')\n        self._register_channel('red')\n        self._register_channel_aliases('red', 'r')\n        self._register_channel('green')",
+        "detail": "fixtures.StairvilleFixture",
+        "documentation": {}
+    },
+    {
+        "label": "setup_wb",
+        "kind": 2,
+        "importPath": "tests.test_data_revenue",
+        "description": "tests.test_data_revenue",
+        "peekOfCode": "def setup_wb():\n    wb = Workbook()\n    wb.create_sheet(\"data_revenue\")\n    sheet = wb[\"data_revenue\"]\n    sheet[\"G2\"] = 1000  # 2011\n    sheet[\"G3\"] = 2000\n    sheet[\"G4\"] = 3000\n    sheet[\"G5\"] = 4000\n    sheet[\"G6\"] = 5000\n    sheet[\"G7\"] = 6000",
+        "detail": "tests.test_data_revenue",
+        "documentation": {}
+    },
+    {
+        "label": "test_data_revenue_clamped_to_2019_and_spread_across_the_year",
+        "kind": 2,
+        "importPath": "tests.test_data_revenue",
+        "description": "tests.test_data_revenue",
+        "peekOfCode": "def test_data_revenue_clamped_to_2019_and_spread_across_the_year(setup_wb: Workbook):\n    data = RevenueData(setup_wb)\n    sheet = setup_wb[\"data_revenue\"]\n    assert data[0][0].year == 2019\n    assert data[0][0].month == 1\n    assert data[0][1] == sheet[\"G10\"].value / 12\n    assert data[-1][0].year == 2023\n    assert data[-1][0].month == 12\n    assert data[-1][1] == sheet[\"G14\"].value",
+        "detail": "tests.test_data_revenue",
         "documentation": {}
     },
     {
@@ -250,25 +327,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2 = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\nwb = Workbook(\"./data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        fixture.color([data_point[1], 0, 0, 0], 1)",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "fixture",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "fixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2 = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\nwb = Workbook(\"./data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        fixture.color([data_point[1], 0, 0, 0], 1)\n        fixture2.simple_color([data_point[1], 0, 0, 0])",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "fixture2",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "fixture2 = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\nwb = Workbook(\"./data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        fixture.color([data_point[1], 0, 0, 0], 1)\n        fixture2.simple_color([data_point[1], 0, 0, 0])\n        sleep(1)\ndmx.close()",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture: StairvilleFixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2: ChauvetFixture = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\nwb = Workbook(\"./data/data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])",
         "detail": "data",
         "documentation": {}
     },
@@ -277,7 +336,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = Workbook(\"./data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        fixture.color([data_point[1], 0, 0, 0], 1)\n        fixture2.simple_color([data_point[1], 0, 0, 0])\n        sleep(1)\ndmx.close()",
+        "peekOfCode": "wb = Workbook(\"./data/data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
         "detail": "data",
         "documentation": {}
     },
@@ -286,7 +345,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "revenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        fixture.color([data_point[1], 0, 0, 0], 1)\n        fixture2.simple_color([data_point[1], 0, 0, 0])\n        sleep(1)\ndmx.close()",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
         "detail": "data",
         "documentation": {}
     },
@@ -315,15 +374,6 @@
         "description": "debug",
         "peekOfCode": "fixture2 = dmx.add_fixture(ChauvetFixture, name=\"ChauvetFixture\",start_channel=1,mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
         "detail": "debug",
-        "documentation": {}
-    },
-    {
-        "label": "StairvilleFixture",
-        "kind": 6,
-        "importPath": "StairvilleFixture",
-        "description": "StairvilleFixture",
-        "peekOfCode": "class StairvilleFixture(Fixture):\n    def __init__(self, *args, **kwargs):\n        super().__init__(*args, **kwargs)\n        self._register_channel('dimmer')\n        self._register_channel_aliases('dimmer', 'dim')\n        self._register_channel('Strobe')\n        self._register_channel_aliases('strobe', 'st')\n        self._register_channel('red')\n        self._register_channel_aliases('red', 'r')\n        self._register_channel('green')",
-        "detail": "StairvilleFixture",
         "documentation": {}
     }
 ]

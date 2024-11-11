@@ -1,0 +1,10 @@
+{
+    "python.testing.pytestArgs": [
+        "tests",
+        "--maxfail=1",
+        "--disable-warnings"
+    ],
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestEnabled": true,
+    "python.testing.cwd": "${workspaceFolder}"
+}
