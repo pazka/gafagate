@@ -405,7 +405,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfixture1.dim(255, 1)\nfixture2.dim(255, 1)\nwhile True:\n    for data_point in revenue_data:\n        print(\"data point: \", data_point)\n        uv = revenue_data.to_uv(data_point)\n        uv = int(uv)\n        print(\"uv: \", uv)",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)",
         "detail": "data",
         "documentation": {}
     },
@@ -414,7 +414,25 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "revenue_data = RevenueData(wb)\nfixture1.dim(255, 1)\nfixture2.dim(255, 1)\nwhile True:\n    for data_point in revenue_data:\n        print(\"data point: \", data_point)\n        uv = revenue_data.to_uv(data_point)\n        uv = int(uv)\n        print(\"uv: \", uv)\n        fixture1.simple_color((uv*255, 0, 0))",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)\n        uv = revenue_data.to_uv(data_point) * 255",
+        "detail": "data",
+        "documentation": {}
+    },
+    {
+        "label": "dim_speed",
+        "kind": 5,
+        "importPath": "data",
+        "description": "data",
+        "peekOfCode": "dim_speed = 0.05\ncolor_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)\n        uv = revenue_data.to_uv(data_point) * 255\n        # display next color gradually\n        counter = 0\n        while counter < color_transition_time:",
+        "detail": "data",
+        "documentation": {}
+    },
+    {
+        "label": "color_transition_time",
+        "kind": 5,
+        "importPath": "data",
+        "description": "data",
+        "peekOfCode": "color_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)\n        uv = revenue_data.to_uv(data_point) * 255\n        # display next color gradually\n        counter = 0\n        while counter < color_transition_time:\n            counter += dim_speed",
         "detail": "data",
         "documentation": {}
     },

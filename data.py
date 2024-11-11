@@ -26,18 +26,27 @@ else:
 wb = load_workbook(filename="data/data.xlsx", read_only=True, data_only=True)
 revenue_data = RevenueData(wb)
 
-fixture1.dim(255, 1)
+fixture1.dim(255, 1/200)
 fixture2.dim(255, 1)
 
+dim_speed = 0.05
+color_transition_time = 1
 
 while True:
+    prev_uv = 0
     for data_point in revenue_data:
-        print("data point: ", data_point)
-        uv = revenue_data.to_uv(data_point)
-        uv = int(uv)
-        print("uv: ", uv)
-        fixture1.simple_color((uv*255, 0, 0))
-        fixture2.simple_color((uv*255, 0, 0))
-        sleep(1)
+        print(data_point)
+        uv = revenue_data.to_uv(data_point) * 255
+
+        # display next color gradually
+        counter = 0
+        while counter < color_transition_time:
+            counter += dim_speed
+            transition_color = (prev_uv + (uv - prev_uv) *
+                                (counter / color_transition_time))
+            fixture1.simple_color((transition_color, 0, 0))
+            fixture2.simple_color((transition_color, 0, 0))
+            sleep(dim_speed)
+        prev_uv = uv
 
 dmx.close()
