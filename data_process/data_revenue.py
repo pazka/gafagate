@@ -19,7 +19,8 @@ class RevenueData(DataHelper):
         monthly_data: list[DataPoint] = []
         for year_data in yearly_data:
             year = year_data[0].year
-            month_revenue = year_data[1]/12
+            revenue = float(year_data[1].replace(",", ""))
+            month_revenue = revenue/12
 
             for j in range(1, 13):
                 monthly_data.append((date(year, j, 1), month_revenue * j))

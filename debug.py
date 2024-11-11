@@ -1,12 +1,14 @@
 from PyDMXControl.controllers import OpenDMXController
-from StairvilleFixture import StairvilleFixture
+from fixtures.StairvilleFixture import StairvilleFixture
 from openpyxl import Workbook
-from ChauvetFixture import ChauvetFixture
+from fixtures.ChauvetFixture import ChauvetFixture
 
 
 dmx = OpenDMXController()
-fixture = dmx.add_fixture(StairvilleFixture, name="StairvilleFixture-2",start_channel=10)
-fixture2 = dmx.add_fixture(ChauvetFixture, name="ChauvetFixture",start_channel=1,mode=9)
+fixture = dmx.add_fixture(
+    StairvilleFixture, name="StairvilleFixture-2", start_channel=10)
+fixture2 = dmx.add_fixture(
+    ChauvetFixture, name="ChauvetFixture", start_channel=1, mode=9)
 
 
 dmx.web_control()

@@ -89,6 +89,14 @@
         "documentation": {}
     },
     {
+        "label": "load_workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
         "label": "Workbook",
         "importPath": "openpyxl",
         "description": "openpyxl",
@@ -195,50 +203,58 @@
     },
     {
         "label": "StairvilleFixture",
-        "importPath": "StairvilleFixture",
-        "description": "StairvilleFixture",
+        "importPath": "fixtures.StairvilleFixture",
+        "description": "fixtures.StairvilleFixture",
         "isExtraImport": true,
-        "detail": "StairvilleFixture",
+        "detail": "fixtures.StairvilleFixture",
         "documentation": {}
     },
     {
         "label": "StairvilleFixture",
-        "importPath": "StairvilleFixture",
-        "description": "StairvilleFixture",
+        "importPath": "fixtures.StairvilleFixture",
+        "description": "fixtures.StairvilleFixture",
         "isExtraImport": true,
-        "detail": "StairvilleFixture",
+        "detail": "fixtures.StairvilleFixture",
         "documentation": {}
     },
     {
         "label": "StairvilleFixture",
-        "importPath": "StairvilleFixture",
-        "description": "StairvilleFixture",
+        "importPath": "fixtures.StairvilleFixture",
+        "description": "fixtures.StairvilleFixture",
         "isExtraImport": true,
-        "detail": "StairvilleFixture",
+        "detail": "fixtures.StairvilleFixture",
         "documentation": {}
     },
     {
         "label": "ChauvetFixture",
-        "importPath": "ChauvetFixture",
-        "description": "ChauvetFixture",
+        "importPath": "fixtures.ChauvetFixture",
+        "description": "fixtures.ChauvetFixture",
         "isExtraImport": true,
-        "detail": "ChauvetFixture",
+        "detail": "fixtures.ChauvetFixture",
         "documentation": {}
     },
     {
         "label": "ChauvetFixture",
-        "importPath": "ChauvetFixture",
-        "description": "ChauvetFixture",
+        "importPath": "fixtures.ChauvetFixture",
+        "description": "fixtures.ChauvetFixture",
         "isExtraImport": true,
-        "detail": "ChauvetFixture",
+        "detail": "fixtures.ChauvetFixture",
         "documentation": {}
     },
     {
         "label": "ChauvetFixture",
-        "importPath": "ChauvetFixture",
-        "description": "ChauvetFixture",
+        "importPath": "fixtures.ChauvetFixture",
+        "description": "fixtures.ChauvetFixture",
         "isExtraImport": true,
-        "detail": "ChauvetFixture",
+        "detail": "fixtures.ChauvetFixture",
+        "documentation": {}
+    },
+    {
+        "label": "fixture",
+        "importPath": "cycle",
+        "description": "cycle",
+        "isExtraImport": true,
+        "detail": "cycle",
         "documentation": {}
     },
     {
@@ -282,7 +298,7 @@
         "kind": 2,
         "importPath": "tests.test_data_revenue",
         "description": "tests.test_data_revenue",
-        "peekOfCode": "def setup_wb():\n    wb = Workbook()\n    wb.create_sheet(\"data_revenue\")\n    sheet = wb[\"data_revenue\"]\n    sheet[\"G2\"] = 1000  # 2011\n    sheet[\"G3\"] = 2000\n    sheet[\"G4\"] = 3000\n    sheet[\"G5\"] = 4000\n    sheet[\"G6\"] = 5000\n    sheet[\"G7\"] = 6000",
+        "peekOfCode": "def setup_wb():\n    wb = Workbook()\n    wb.create_sheet(\"data_revenue\")\n    sheet = wb[\"data_revenue\"]\n    sheet[\"G2\"] = \"1,000\"  # 2011\n    sheet[\"G3\"] = \"2,000\"\n    sheet[\"G4\"] = \"3,000.95\"\n    sheet[\"G5\"] = \"4,000\"\n    sheet[\"G6\"] = \"5,000.15\"\n    sheet[\"G7\"] = \"6,600\"",
         "detail": "tests.test_data_revenue",
         "documentation": {}
     },
@@ -291,7 +307,7 @@
         "kind": 2,
         "importPath": "tests.test_data_revenue",
         "description": "tests.test_data_revenue",
-        "peekOfCode": "def test_data_revenue_clamped_to_2019_and_spread_across_the_year(setup_wb: Workbook):\n    data = RevenueData(setup_wb)\n    sheet = setup_wb[\"data_revenue\"]\n    assert data[0][0].year == 2019\n    assert data[0][0].month == 1\n    assert data[0][1] == sheet[\"G10\"].value / 12\n    assert data[-1][0].year == 2023\n    assert data[-1][0].month == 12\n    assert data[-1][1] == sheet[\"G14\"].value",
+        "peekOfCode": "def test_data_revenue_clamped_to_2019_and_spread_across_the_year(setup_wb: Workbook):\n    data = RevenueData(setup_wb)\n    sheet = setup_wb[\"data_revenue\"]\n    assert data[0][0].year == 2019\n    assert data[0][0].month == 1\n    assert data[0][1] == (9000 / 12)\n    assert data[-1][0].year == 2023\n    assert data[-1][0].month == 12\n    assert data[-1][1] == 13000",
         "detail": "tests.test_data_revenue",
         "documentation": {}
     },
@@ -300,7 +316,7 @@
         "kind": 5,
         "importPath": "cycle",
         "description": "cycle",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-1\")\ncolors = [[255,0,0,0],[0,255,0,0],[0,0,255,0]]\nfixture.dim(255,1)\nwhile True:\n    for color in colors:\n        print(\"color :\",color)\n        fixture.color(color,1)\n        sleep(1)",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-1\")\ncolors = [[255, 0, 0, 0], [0, 255, 0, 0], [0, 0, 255, 0]]\nfixture.dim(255, 1)\nwhile True:\n    for color in colors:\n        print(\"color :\", color)\n        fixture.color(color, 1)\n        sleep(1)",
         "detail": "cycle",
         "documentation": {}
     },
@@ -309,7 +325,7 @@
         "kind": 5,
         "importPath": "cycle",
         "description": "cycle",
-        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-1\")\ncolors = [[255,0,0,0],[0,255,0,0],[0,0,255,0]]\nfixture.dim(255,1)\nwhile True:\n    for color in colors:\n        print(\"color :\",color)\n        fixture.color(color,1)\n        sleep(1)",
+        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-1\")\ncolors = [[255, 0, 0, 0], [0, 255, 0, 0], [0, 0, 255, 0]]\nfixture.dim(255, 1)\nwhile True:\n    for color in colors:\n        print(\"color :\", color)\n        fixture.color(color, 1)\n        sleep(1)",
         "detail": "cycle",
         "documentation": {}
     },
@@ -318,7 +334,7 @@
         "kind": 5,
         "importPath": "cycle",
         "description": "cycle",
-        "peekOfCode": "colors = [[255,0,0,0],[0,255,0,0],[0,0,255,0]]\nfixture.dim(255,1)\nwhile True:\n    for color in colors:\n        print(\"color :\",color)\n        fixture.color(color,1)\n        sleep(1)",
+        "peekOfCode": "colors = [[255, 0, 0, 0], [0, 255, 0, 0], [0, 0, 255, 0]]\nfixture.dim(255, 1)\nwhile True:\n    for color in colors:\n        print(\"color :\", color)\n        fixture.color(color, 1)\n        sleep(1)",
         "detail": "cycle",
         "documentation": {}
     },
@@ -327,7 +343,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture: StairvilleFixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2: ChauvetFixture = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\nwb = Workbook(\"./data/data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture: StairvilleFixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2: ChauvetFixture = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\n# os test that file exists\nif os.path.exists(\"data/data.xlsx\"):\n    print(\"File exists\")\nelse:\n    print(\"File does not exist\")",
         "detail": "data",
         "documentation": {}
     },
@@ -336,7 +352,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = Workbook(\"./data/data.xlsx\")\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True)\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
         "detail": "data",
         "documentation": {}
     },
@@ -354,7 +370,7 @@
         "kind": 5,
         "importPath": "debug",
         "description": "debug",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-2\",start_channel=10)\nfixture2 = dmx.add_fixture(ChauvetFixture, name=\"ChauvetFixture\",start_channel=1,mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
+        "peekOfCode": "dmx = OpenDMXController()\nfixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2 = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()",
         "detail": "debug",
         "documentation": {}
     },
@@ -363,7 +379,7 @@
         "kind": 5,
         "importPath": "debug",
         "description": "debug",
-        "peekOfCode": "fixture = dmx.add_fixture(StairvilleFixture, name=\"StairvilleFixture-2\",start_channel=10)\nfixture2 = dmx.add_fixture(ChauvetFixture, name=\"ChauvetFixture\",start_channel=1,mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
+        "peekOfCode": "fixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2 = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
         "detail": "debug",
         "documentation": {}
     },
@@ -372,7 +388,7 @@
         "kind": 5,
         "importPath": "debug",
         "description": "debug",
-        "peekOfCode": "fixture2 = dmx.add_fixture(ChauvetFixture, name=\"ChauvetFixture\",start_channel=1,mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
+        "peekOfCode": "fixture2 = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
         "detail": "debug",
         "documentation": {}
     }
