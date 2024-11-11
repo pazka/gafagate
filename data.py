@@ -35,7 +35,8 @@ fixture1.dim(255, 1/200)
 fixture2.dim(255, 1)
 
 dim_speed = 0.01
-color_transition_time = 1
+#color_transition_time = 1
+color_transition_time = 0.1
 
 while True:
     prev_color = (0, 0, 0)
@@ -56,14 +57,20 @@ while True:
             revenue_data_point[1]))
         print("GDPR Fines (millions): ", round(
             fines_data_point[1]/1000000))
-        print("OECD members Rate %: ", round(inflation_data_point[1], 2))
+        print("OECD members Inflation Rate (%): ", round(inflation_data_point[1], 2))
         print("Color (R,G,B): ", (round(new_color_uv[0]), round(new_color_uv[1]), round(new_color_uv[2])))
         # display next color gradually
         counter = 0
         while counter < color_transition_time:
-            counter += dim_speed
-            # TODO : fix : interpoation sometimes give negative values
+            counter = round(counter + dim_speed,5)
             transition_color = interpolate(prev_color, new_color_uv, counter / color_transition_time)
+            if(transition_color[0] < 0):
+                transition_color = (0, transition_color[1], transition_color[2])
+            if(transition_color[1] < 0):
+                transition_color = (transition_color[0], 0, transition_color[2])
+            if(transition_color[2] < 0):
+                transition_color = (transition_color[0], transition_color[1], 0)
+
             #print("Transition Color (R,G,B): ", (round(transition_color[0]), round(transition_color[1]), round(transition_color[2])))
             fixture1.simple_color(transition_color)
             fixture2.simple_color(transition_color)

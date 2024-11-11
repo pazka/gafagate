@@ -21,9 +21,10 @@ class InflationData(DataHelper):
             yearly_data.append((date(2010+i, 1, 1), value))
 
         monthly_data: list[DataPoint] = []
-        for i in range(0, len(yearly_data)-1):
-            year_data = yearly_data[i]
-            next_year_data = yearly_data[i+1]
+        year_data = (date(2009, 1, 1), 0)
+        for i in range(0, len(yearly_data)):
+            year_data = yearly_data[i-1]
+            next_year_data = yearly_data[i]
 
             year = year_data[0].year
             inflation = year_data[1]
