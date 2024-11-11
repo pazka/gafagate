@@ -30,5 +30,4 @@ class RevenueData(DataHelper):
                 monthly_data.append((date(year, j, 1), month_revenue * j))
 
         super().__init__(monthly_data)
-
         self.filter_dates(date(2019, 1, 1), date(2023, 12, 31))

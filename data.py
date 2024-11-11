@@ -5,7 +5,8 @@ from fixtures.StairvilleFixture import StairvilleFixture
 from openpyxl import Workbook, load_workbook
 from fixtures.ChauvetFixture import ChauvetFixture
 from data_process.data_revenue import RevenueData
-
+from data_process.data_fines import FinesData
+from helpers import normalize,interpolate
 
 dmx = OpenDMXController()
 
@@ -25,28 +26,45 @@ else:
 
 wb = load_workbook(filename="data/data.xlsx", read_only=True, data_only=True)
 revenue_data = RevenueData(wb)
+fines_data = FinesData(wb)
 
 fixture1.dim(255, 1/200)
 fixture2.dim(255, 1)
 
 dim_speed = 0.05
-color_transition_time = 1
+color_transition_time = 0.5
 
 while True:
-    prev_uv = 0
-    for data_point in revenue_data:
-        print(data_point)
-        uv = revenue_data.to_uv(data_point) * 255
+    prev_color = (0, 0, 0)
+    for i in range(0, len(revenue_data)):
+        revenue_data_point = revenue_data[i]
+        fines_data_point = fines_data[i]
 
+        new_color_uv = (
+            revenue_data.to_uv(revenue_data_point) * 255,
+            fines_data.to_uv(fines_data_point) * 255,
+            0
+        )
+
+        print("-------------------------------")
+        print("Date : ", revenue_data_point[0])
+        print("GAFAM Revenue (millions) : ", round(
+            revenue_data_point[1]))
+        print("GDPR Fines (millions): ", round(
+            fines_data_point[1]))
+        print("TBD Inflation Blue value : ", new_color_uv[2])
+        print("Color (R,G,B): ", (round(new_color_uv[0]), round(new_color_uv[1]), round(new_color_uv[2])))
         # display next color gradually
         counter = 0
         while counter < color_transition_time:
             counter += dim_speed
-            transition_color = (prev_uv + (uv - prev_uv) *
-                                (counter / color_transition_time))
-            fixture1.simple_color((transition_color, 0, 0))
-            fixture2.simple_color((transition_color, 0, 0))
+            # TODO : fix : interpoation sometimes give negative values
+            transition_color = interpolate(prev_color, new_color_uv, counter / color_transition_time)
+            print("Transition Color (R,G,B): ", (round(transition_color[0]), round(transition_color[1]), round(transition_color[2])))
+            fixture1.simple_color(transition_color)
+            fixture2.simple_color(transition_color)
             sleep(dim_speed)
-        prev_uv = uv
+
+        prev_color = new_color_uv
 
 dmx.close()

@@ -1,35 +1,34 @@
 [
     {
-        "label": "datetime",
-        "kind": 6,
+        "label": "DataHelper",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
         "isExtraImport": true,
-        "importPath": "datetime",
-        "description": "datetime",
-        "detail": "datetime",
+        "detail": "data_process.data_helper",
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "DataHelper",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "data_process.data_helper",
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "DataDate",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "data_process.data_helper",
         "documentation": {}
     },
     {
-        "label": "date",
-        "importPath": "datetime",
-        "description": "datetime",
+        "label": "DataPoint",
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
         "isExtraImport": true,
-        "detail": "datetime",
+        "detail": "data_process.data_helper",
         "documentation": {}
     },
     {
@@ -70,6 +69,55 @@
         "description": "data_process.data_helper",
         "isExtraImport": true,
         "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "datetime",
+        "description": "datetime",
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "date",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
         "documentation": {}
     },
     {
@@ -118,6 +166,14 @@
         "description": "openpyxl",
         "isExtraImport": true,
         "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "Cell",
+        "importPath": "openpyxl.cell",
+        "description": "openpyxl.cell",
+        "isExtraImport": true,
+        "detail": "openpyxl.cell",
         "documentation": {}
     },
     {
@@ -275,6 +331,47 @@
         "documentation": {}
     },
     {
+        "label": "FinesData",
+        "importPath": "data_process.data_fines",
+        "description": "data_process.data_fines",
+        "isExtraImport": true,
+        "detail": "data_process.data_fines",
+        "documentation": {}
+    },
+    {
+        "label": "normalize",
+        "importPath": "helpers",
+        "description": "helpers",
+        "isExtraImport": true,
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "interpolate",
+        "importPath": "helpers",
+        "description": "helpers",
+        "isExtraImport": true,
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "FinesData",
+        "kind": 6,
+        "importPath": "data_process.data_fines",
+        "description": "data_process.data_fines",
+        "peekOfCode": "class FinesData(DataHelper):\n    def __init__(self, wb: Workbook):\n        self.data = []\n        sheet = wb[\"Fines\"]\n        raw_data: list[list[Cell]] = sheet[\"B2:B75\"]\n        month = 4\n        year = 2018\n        for data in raw_data:\n            if data[0].value is None:\n                self.data.append((date(year, month, 1), 0))",
+        "detail": "data_process.data_fines",
+        "documentation": {}
+    },
+    {
         "label": "DataHelper",
         "kind": 6,
         "importPath": "data_process.data_helper",
@@ -405,7 +502,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):",
         "detail": "data",
         "documentation": {}
     },
@@ -414,7 +511,16 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "revenue_data = RevenueData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)\n        uv = revenue_data.to_uv(data_point) * 255",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]",
+        "detail": "data",
+        "documentation": {}
+    },
+    {
+        "label": "fines_data",
+        "kind": 5,
+        "importPath": "data",
+        "description": "data",
+        "peekOfCode": "fines_data = FinesData(wb)\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]",
         "detail": "data",
         "documentation": {}
     },
@@ -423,7 +529,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "dim_speed = 0.05\ncolor_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)\n        uv = revenue_data.to_uv(data_point) * 255\n        # display next color gradually\n        counter = 0\n        while counter < color_transition_time:",
+        "peekOfCode": "dim_speed = 0.05\ncolor_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,",
         "detail": "data",
         "documentation": {}
     },
@@ -432,7 +538,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "color_transition_time = 1\nwhile True:\n    prev_uv = 0\n    for data_point in revenue_data:\n        print(data_point)\n        uv = revenue_data.to_uv(data_point) * 255\n        # display next color gradually\n        counter = 0\n        while counter < color_transition_time:\n            counter += dim_speed",
+        "peekOfCode": "color_transition_time = 0.5\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,\n            0",
         "detail": "data",
         "documentation": {}
     },
@@ -461,6 +567,42 @@
         "description": "debug",
         "peekOfCode": "fixture2 = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\ndmx.web_control()\n# Once the console debug mode is exited the script will continue, to stop it\n#  exiting and stopping DMX output when can use a built-in sleep function.\n# This sleep function will wait until enter is pressed in the console before continuing.\ndmx.sleep_till_enter()\ndmx.close()",
         "detail": "debug",
+        "documentation": {}
+    },
+    {
+        "label": "normalize",
+        "kind": 2,
+        "importPath": "helpers",
+        "description": "helpers",
+        "peekOfCode": "def normalize(value: float, min_val: float, max_val: float) -> float:\n    return (value - min_val) / (max_val - min_val)\ndef interpolate(min_value: float, max_value: float, normalized_value: float) -> float:\n    return min_value + (max_value - min_value) * normalized_value\ndef normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple((v - min_v) / (max_v - min_v) for v, min_v, max_v in zip(value, min_val, max_val))\nfrom typing import Tuple\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "interpolate",
+        "kind": 2,
+        "importPath": "helpers",
+        "description": "helpers",
+        "peekOfCode": "def interpolate(min_value: float, max_value: float, normalized_value: float) -> float:\n    return min_value + (max_value - min_value) * normalized_value\ndef normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple((v - min_v) / (max_v - min_v) for v, min_v, max_v in zip(value, min_val, max_val))\nfrom typing import Tuple\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "normalize",
+        "kind": 2,
+        "importPath": "helpers",
+        "description": "helpers",
+        "peekOfCode": "def normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple((v - min_v) / (max_v - min_v) for v, min_v, max_v in zip(value, min_val, max_val))\nfrom typing import Tuple\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "interpolate",
+        "kind": 2,
+        "importPath": "helpers",
+        "description": "helpers",
+        "peekOfCode": "def interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "detail": "helpers",
         "documentation": {}
     }
 ]
