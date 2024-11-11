@@ -28,7 +28,7 @@ class StairvilleFixture(Fixture):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        
+
         self._register_channel('dimmer')
         self._register_channel_aliases('dimmer', 'dim')
         self._register_channel('Strobe')
@@ -41,3 +41,6 @@ class StairvilleFixture(Fixture):
         self._register_channel_aliases('blue', 'b')
         self._register_channel('sound')
         self._register_channel_aliases('sound', 'so')
+
+    def simple_color(self, color: tuple[int, int, int]):
+        self.color([color[0], color[1], color[2], 0], 1)
