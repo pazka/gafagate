@@ -23,7 +23,7 @@ else:
     print("File does not exist")
 
 
-wb = load_workbook(filename="data/data.xlsx", read_only=True)
+wb = load_workbook(filename="data/data.xlsx", read_only=True, data_only=True)
 revenue_data = RevenueData(wb)
 
 

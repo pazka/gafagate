@@ -19,7 +19,10 @@ class RevenueData(DataHelper):
         monthly_data: list[DataPoint] = []
         for year_data in yearly_data:
             year = year_data[0].year
-            revenue = float(year_data[1].replace(",", ""))
+            if type(year_data[1]) == str:
+                revenue = float(year_data[1].replace(",", ""))
+            else:
+                revenue = year_data[1]
             month_revenue = revenue/12
 
             for j in range(1, 13):

@@ -352,7 +352,7 @@
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True)\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nwhile True:\n    for data_point in revenue_data:\n        uv = revenue_data.to_uv(data_point[1])\n        fixture.simple_color([uv*255, 0, 0, 0], 1)\n        fixture2.simple_color([uv*255, 0, 0])\n        sleep(1)\ndmx.close()",
         "detail": "data",
         "documentation": {}
     },
