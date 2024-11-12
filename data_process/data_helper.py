@@ -1,8 +1,31 @@
 
 # [Yar,Month]
 from datetime import date
-type DataDate = date
-type DataPoint = tuple[DataDate, float]
+class DataDate(date):   
+    pass
+
+class DataPoint(tuple):
+    date: DataDate
+    value: float
+
+    def __new__(cls, date: DataDate, value: float):
+        return tuple.__new__(cls, (date, value))
+    
+    def __init__(self, date: DataDate, value: float):
+        self.date = date
+        self.value = value
+    
+    def __getitem__(self, index: int) -> float:
+        return self[index]
+    
+    def __iter__(self):
+        return iter(self)
+    
+    def __len__(self) -> int:
+        return len(self)
+    
+    def __str__(self) -> str:
+        return f"({self.date}, {self.value})"
 
 
 class DataHelper():

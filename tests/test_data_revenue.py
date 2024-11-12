@@ -10,9 +10,9 @@ from data_process.data_revenue import RevenueData
 def setup_wb():
     wb = Workbook()
 
-    wb.create_sheet("data_revenue")
+    wb.create_sheet("Revenue")
 
-    sheet = wb["data_revenue"]
+    sheet = wb["Revenue"]
 
     sheet["G2"] = "1,000"  # 2011
     sheet["G3"] = "2,000"
@@ -38,7 +38,6 @@ def setup_wb():
 
 def test_data_revenue_clamped_to_2019_and_spread_across_the_year(setup_wb: Workbook):
     data = RevenueData(setup_wb)
-    sheet = setup_wb["data_revenue"]
 
     assert data[0][0].year == 2019
     assert data[0][0].month == 1

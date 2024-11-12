@@ -11,7 +11,7 @@ def test_initialization():
     ]
     helper = DataHelper(data)
 
-    assert helper.min_date == date(2020, 6, 1)
+    assert helper.min_date == date(2018, 1, 1)
     assert helper.max_date == date(2023, 6, 1)
     assert helper.min_value == 10.0
     assert helper.max_value == 40.0

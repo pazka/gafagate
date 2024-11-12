@@ -436,6 +436,24 @@
         "documentation": {}
     },
     {
+        "label": "DataDate",
+        "kind": 6,
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "peekOfCode": "class DataDate(date):   \n    pass\nclass DataPoint(tuple):\n    date: DataDate\n    value: float\n    def __new__(cls, date: DataDate, value: float):\n        return tuple.__new__(cls, (date, value))\n    def __init__(self, date: DataDate, value: float):\n        self.date = date\n        self.value = value",
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
+        "label": "DataPoint",
+        "kind": 6,
+        "importPath": "data_process.data_helper",
+        "description": "data_process.data_helper",
+        "peekOfCode": "class DataPoint(tuple):\n    date: DataDate\n    value: float\n    def __new__(cls, date: DataDate, value: float):\n        return tuple.__new__(cls, (date, value))\n    def __init__(self, date: DataDate, value: float):\n        self.date = date\n        self.value = value\n    def __getitem__(self, index: int) -> float:\n        return self[index]",
+        "detail": "data_process.data_helper",
+        "documentation": {}
+    },
+    {
         "label": "DataHelper",
         "kind": 6,
         "importPath": "data_process.data_helper",
@@ -485,7 +503,7 @@
         "kind": 2,
         "importPath": "tests.test_data_helper",
         "description": "tests.test_data_helper",
-        "peekOfCode": "def test_initialization():\n    data = [\n        (date(2018, 1, 1), 10.0),\n        (date(2020, 6, 1), 20.0),\n        (date(2021, 6, 1), 30.0),\n        (date(2023, 6, 1), 40.0)\n    ]\n    helper = DataHelper(data)\n    assert helper.min_date == date(2020, 6, 1)\n    assert helper.max_date == date(2023, 6, 1)",
+        "peekOfCode": "def test_initialization():\n    data = [\n        (date(2018, 1, 1), 10.0),\n        (date(2020, 6, 1), 20.0),\n        (date(2021, 6, 1), 30.0),\n        (date(2023, 6, 1), 40.0)\n    ]\n    helper = DataHelper(data)\n    assert helper.min_date == date(2018, 1, 1)\n    assert helper.max_date == date(2023, 6, 1)",
         "detail": "tests.test_data_helper",
         "documentation": {}
     },
@@ -530,7 +548,7 @@
         "kind": 2,
         "importPath": "tests.test_data_revenue",
         "description": "tests.test_data_revenue",
-        "peekOfCode": "def setup_wb():\n    wb = Workbook()\n    wb.create_sheet(\"data_revenue\")\n    sheet = wb[\"data_revenue\"]\n    sheet[\"G2\"] = \"1,000\"  # 2011\n    sheet[\"G3\"] = \"2,000\"\n    sheet[\"G4\"] = \"3,000.95\"\n    sheet[\"G5\"] = \"4,000\"\n    sheet[\"G6\"] = \"5,000.15\"\n    sheet[\"G7\"] = \"6,600\"",
+        "peekOfCode": "def setup_wb():\n    wb = Workbook()\n    wb.create_sheet(\"Revenue\")\n    sheet = wb[\"Revenue\"]\n    sheet[\"G2\"] = \"1,000\"  # 2011\n    sheet[\"G3\"] = \"2,000\"\n    sheet[\"G4\"] = \"3,000.95\"\n    sheet[\"G5\"] = \"4,000\"\n    sheet[\"G6\"] = \"5,000.15\"\n    sheet[\"G7\"] = \"6,600\"",
         "detail": "tests.test_data_revenue",
         "documentation": {}
     },
@@ -539,7 +557,7 @@
         "kind": 2,
         "importPath": "tests.test_data_revenue",
         "description": "tests.test_data_revenue",
-        "peekOfCode": "def test_data_revenue_clamped_to_2019_and_spread_across_the_year(setup_wb: Workbook):\n    data = RevenueData(setup_wb)\n    sheet = setup_wb[\"data_revenue\"]\n    assert data[0][0].year == 2019\n    assert data[0][0].month == 1\n    assert data[0][1] == (9000 / 12)\n    assert data[-1][0].year == 2023\n    assert data[-1][0].month == 12\n    assert data[-1][1] == 13000",
+        "peekOfCode": "def test_data_revenue_clamped_to_2019_and_spread_across_the_year(setup_wb: Workbook):\n    data = RevenueData(setup_wb)\n    assert data[0][0].year == 2019\n    assert data[0][0].month == 1\n    assert data[0][1] == (9000 / 12)\n    assert data[-1][0].year == 2023\n    assert data[-1][0].month == 12\n    assert data[-1][1] == 13000",
         "detail": "tests.test_data_revenue",
         "documentation": {}
     },
