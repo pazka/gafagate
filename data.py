@@ -1,3 +1,4 @@
+#!/home/pazka/gafagate-env/bin/python -u
 from time import sleep
 import os
 from PyDMXControl.controllers import OpenDMXController
