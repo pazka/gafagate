@@ -10,7 +10,16 @@ from data_process.data_fines import FinesData
 from helpers import normalize,interpolate
 from data_process.data_inflation import InflationData
 
-dmx = OpenDMXController()
+success_init = False
+
+while not success_init:
+    try:
+        dmx = OpenDMXController()
+        success_init = True
+    except Exception as e:
+        print("Error: ", e)
+        print("Waiting for USB UART FTI dmx controller ", e)
+        sleep(5)
 
 fixture1: StairvilleFixture = dmx.add_fixture(
     StairvilleFixture, name="StairvilleFixture-2", start_channel=10)

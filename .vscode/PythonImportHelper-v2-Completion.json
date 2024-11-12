@@ -580,11 +580,11 @@
         "documentation": {}
     },
     {
-        "label": "dmx",
+        "label": "success_init",
         "kind": 5,
         "importPath": "data",
         "description": "data",
-        "peekOfCode": "dmx = OpenDMXController()\nfixture1: StairvilleFixture = dmx.add_fixture(\n    StairvilleFixture, name=\"StairvilleFixture-2\", start_channel=10)\nfixture2: ChauvetFixture = dmx.add_fixture(\n    ChauvetFixture, name=\"ChauvetFixture\", start_channel=1, mode=9)\n# os test that file exists\nif os.path.exists(\"data/data.xlsx\"):\n    print(\"File exists\")\nelse:\n    print(\"File does not exist\")",
+        "peekOfCode": "success_init = False\nwhile not success_init:\n    try:\n        dmx = OpenDMXController()\n        success_init = True\n    except Exception as e:\n        print(\"Error: \", e)\n        print(\"Waiting for USB UART FTI dmx controller \", e)\n        sleep(5)\nfixture1: StairvilleFixture = dmx.add_fixture(",
         "detail": "data",
         "documentation": {}
     },

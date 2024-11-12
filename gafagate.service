@@ -1,0 +1,11 @@
+[Unit]
+Description=Update code, activate venv, start gafagate
+
+[Service]
+WorkingDirectory=/home/pazka
+ExecStart=/home/pazka/start-gafagate.sh
+Restart=on-failure
+User=pazka
+
+[Install]
+WantedBy=multi-user.target
