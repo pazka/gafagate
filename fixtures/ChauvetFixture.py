@@ -78,6 +78,6 @@ class ChauvetFixture(Fixture):
         # remove blue out of this fixture
         color = [_color[0], _color[1], 0]
         if self.mode == 4:
-            self.color([color[0], color[1], 0], 1)
+            self.color([color[0], color[1], 0])
         elif self.mode == 9:
-            self.color([color[0], color[1], 0], 1)
+            self.color([color[0], color[1], 0])

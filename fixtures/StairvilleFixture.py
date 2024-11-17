@@ -1,5 +1,8 @@
 """
 Stairville 132 LED RGB DMX
+
+https://www.manualslib.com/manual/2866748/Stairville-Wild-Wash-132-Led-Rgb-Dmx.html
+
 1 put in 6ch mode
 
 |channel|val|function|
@@ -45,4 +48,4 @@ class StairvilleFixture(Fixture):
     def simple_color(self, _color: tuple[int, int, int]):
         # only used for blue
         color = [0, 0, _color[2]]
-        self.color([color[0], color[1], color[2]], 1)
+        self.color([color[0], color[1], color[2]])

@@ -201,6 +201,14 @@
         "documentation": {}
     },
     {
+        "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
         "label": "load_workbook",
         "importPath": "openpyxl",
         "description": "openpyxl",
@@ -210,6 +218,14 @@
     },
     {
         "label": "Workbook",
+        "importPath": "openpyxl",
+        "description": "openpyxl",
+        "isExtraImport": true,
+        "detail": "openpyxl",
+        "documentation": {}
+    },
+    {
+        "label": "load_workbook",
         "importPath": "openpyxl",
         "description": "openpyxl",
         "isExtraImport": true,
@@ -299,6 +315,22 @@
         "documentation": {}
     },
     {
+        "label": "RevenueData",
+        "importPath": "data_process.data_revenue",
+        "description": "data_process.data_revenue",
+        "isExtraImport": true,
+        "detail": "data_process.data_revenue",
+        "documentation": {}
+    },
+    {
+        "label": "sleep",
+        "importPath": "time",
+        "description": "time",
+        "isExtraImport": true,
+        "detail": "time",
+        "documentation": {}
+    },
+    {
         "label": "sleep",
         "importPath": "time",
         "description": "time",
@@ -339,6 +371,22 @@
         "documentation": {}
     },
     {
+        "label": "OpenDMXController",
+        "importPath": "PyDMXControl.controllers",
+        "description": "PyDMXControl.controllers",
+        "isExtraImport": true,
+        "detail": "PyDMXControl.controllers",
+        "documentation": {}
+    },
+    {
+        "label": "StairvilleFixture",
+        "importPath": "fixtures.StairvilleFixture",
+        "description": "fixtures.StairvilleFixture",
+        "isExtraImport": true,
+        "detail": "fixtures.StairvilleFixture",
+        "documentation": {}
+    },
+    {
         "label": "StairvilleFixture",
         "importPath": "fixtures.StairvilleFixture",
         "description": "fixtures.StairvilleFixture",
@@ -384,6 +432,39 @@
         "description": "fixtures.ChauvetFixture",
         "isExtraImport": true,
         "detail": "fixtures.ChauvetFixture",
+        "documentation": {}
+    },
+    {
+        "label": "ChauvetFixture",
+        "importPath": "fixtures.ChauvetFixture",
+        "description": "fixtures.ChauvetFixture",
+        "isExtraImport": true,
+        "detail": "fixtures.ChauvetFixture",
+        "documentation": {}
+    },
+    {
+        "label": "Tuple",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
+        "documentation": {}
+    },
+    {
+        "label": "FinesData",
+        "importPath": "data_process.data_fines",
+        "description": "data_process.data_fines",
+        "isExtraImport": true,
+        "detail": "data_process.data_fines",
         "documentation": {}
     },
     {
@@ -411,6 +492,30 @@
         "documentation": {}
     },
     {
+        "label": "normalize",
+        "importPath": "helpers",
+        "description": "helpers",
+        "isExtraImport": true,
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "interpolate",
+        "importPath": "helpers",
+        "description": "helpers",
+        "isExtraImport": true,
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "extract_1_from_color",
+        "importPath": "helpers",
+        "description": "helpers",
+        "isExtraImport": true,
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
         "label": "InflationData",
         "importPath": "data_process.data_inflation",
         "description": "data_process.data_inflation",
@@ -419,11 +524,53 @@
         "documentation": {}
     },
     {
-        "label": "Tuple",
-        "importPath": "typing",
-        "description": "typing",
+        "label": "InflationData",
+        "importPath": "data_process.data_inflation",
+        "description": "data_process.data_inflation",
         "isExtraImport": true,
-        "detail": "typing",
+        "detail": "data_process.data_inflation",
+        "documentation": {}
+    },
+    {
+        "label": "update_plot",
+        "importPath": "plot",
+        "description": "plot",
+        "isExtraImport": true,
+        "detail": "plot",
+        "documentation": {}
+    },
+    {
+        "label": "update_plot_non_blocking",
+        "importPath": "plot",
+        "description": "plot",
+        "isExtraImport": true,
+        "detail": "plot",
+        "documentation": {}
+    },
+    {
+        "label": "FuncAnimation",
+        "importPath": "matplotlib.animation",
+        "description": "matplotlib.animation",
+        "isExtraImport": true,
+        "detail": "matplotlib.animation",
+        "documentation": {}
+    },
+    {
+        "label": "matplotlib.pyplot",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "matplotlib.pyplot",
+        "description": "matplotlib.pyplot",
+        "detail": "matplotlib.pyplot",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
         "documentation": {}
     },
     {
@@ -580,78 +727,6 @@
         "documentation": {}
     },
     {
-        "label": "success_init",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "success_init = False\nwhile not success_init:\n    try:\n        dmx = OpenDMXController()\n        success_init = True\n    except Exception as e:\n        print(\"Error: \", e)\n        print(\"Waiting for USB UART FTI dmx controller \", e)\n        sleep(5)\nfixture1: StairvilleFixture = dmx.add_fixture(",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "wb",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "revenue_data",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "fines_data",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "fines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "inflation_data",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "inflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "dim_speed",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "dim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "#color_transition_time",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
-        "label": "color_transition_time",
-        "kind": 5,
-        "importPath": "data",
-        "description": "data",
-        "peekOfCode": "color_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,",
-        "detail": "data",
-        "documentation": {}
-    },
-    {
         "label": "dmx",
         "kind": 5,
         "importPath": "debug",
@@ -683,7 +758,7 @@
         "kind": 2,
         "importPath": "helpers",
         "description": "helpers",
-        "peekOfCode": "def normalize(value: float, min_val: float, max_val: float) -> float:\n    return (value - min_val) / (max_val - min_val)\ndef interpolate(min_value: float, max_value: float, normalized_value: float) -> float:\n    return min_value + (max_value - min_value) * normalized_value\ndef normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple((v - min_v) / (max_v - min_v) for v, min_v, max_v in zip(value, min_val, max_val))\nfrom typing import Tuple\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "peekOfCode": "def normalize(value: float, min_val: float, max_val: float) -> float:\n    return math.ceil((value - min_val) / (max_val - min_val))\ndef interpolate(min_value: float, max_value: float, normalized_value: float) -> float:\n    return math.ceil(min_value + (max_value - min_value) * normalized_value)\ndef normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple(math.ceil((v - min_v) / (max_v - min_v)) for v, min_v, max_v in zip(value, min_val, max_val))\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(math.ceil(min_v + (max_v - min_v) * normalized_val) for min_v, max_v in zip(min_val, max_val))\ndef extract_1_from_color(_color: Tuple[int, int, int], i) -> int:\n    color = [0, 0, 0]",
         "detail": "helpers",
         "documentation": {}
     },
@@ -692,7 +767,7 @@
         "kind": 2,
         "importPath": "helpers",
         "description": "helpers",
-        "peekOfCode": "def interpolate(min_value: float, max_value: float, normalized_value: float) -> float:\n    return min_value + (max_value - min_value) * normalized_value\ndef normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple((v - min_v) / (max_v - min_v) for v, min_v, max_v in zip(value, min_val, max_val))\nfrom typing import Tuple\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "peekOfCode": "def interpolate(min_value: float, max_value: float, normalized_value: float) -> float:\n    return math.ceil(min_value + (max_value - min_value) * normalized_value)\ndef normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple(math.ceil((v - min_v) / (max_v - min_v)) for v, min_v, max_v in zip(value, min_val, max_val))\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(math.ceil(min_v + (max_v - min_v) * normalized_val) for min_v, max_v in zip(min_val, max_val))\ndef extract_1_from_color(_color: Tuple[int, int, int], i) -> int:\n    color = [0, 0, 0]\n    color[i] = _color[i]\n    return tuple(color)",
         "detail": "helpers",
         "documentation": {}
     },
@@ -701,7 +776,7 @@
         "kind": 2,
         "importPath": "helpers",
         "description": "helpers",
-        "peekOfCode": "def normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple((v - min_v) / (max_v - min_v) for v, min_v, max_v in zip(value, min_val, max_val))\nfrom typing import Tuple\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "peekOfCode": "def normalize(value: tuple[float, float, float], min_val: tuple[float, float, float], max_val: tuple[float, float, float]) -> tuple[float, float, float]:\n    return tuple(math.ceil((v - min_v) / (max_v - min_v)) for v, min_v, max_v in zip(value, min_val, max_val))\ndef interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(math.ceil(min_v + (max_v - min_v) * normalized_val) for min_v, max_v in zip(min_val, max_val))\ndef extract_1_from_color(_color: Tuple[int, int, int], i) -> int:\n    color = [0, 0, 0]\n    color[i] = _color[i]\n    return tuple(color)",
         "detail": "helpers",
         "documentation": {}
     },
@@ -710,8 +785,206 @@
         "kind": 2,
         "importPath": "helpers",
         "description": "helpers",
-        "peekOfCode": "def interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(min_v + (max_v - min_v) * normalized_val for min_v, max_v in zip(min_val, max_val))",
+        "peekOfCode": "def interpolate(min_val: Tuple[float, float, float], max_val: Tuple[float, float, float], normalized_val: float) -> Tuple[float, float, float]:\n    return tuple(math.ceil(min_v + (max_v - min_v) * normalized_val) for min_v, max_v in zip(min_val, max_val))\ndef extract_1_from_color(_color: Tuple[int, int, int], i) -> int:\n    color = [0, 0, 0]\n    color[i] = _color[i]\n    return tuple(color)",
         "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "extract_1_from_color",
+        "kind": 2,
+        "importPath": "helpers",
+        "description": "helpers",
+        "peekOfCode": "def extract_1_from_color(_color: Tuple[int, int, int], i) -> int:\n    color = [0, 0, 0]\n    color[i] = _color[i]\n    return tuple(color)",
+        "detail": "helpers",
+        "documentation": {}
+    },
+    {
+        "label": "success_init",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "success_init = False\nwhile not success_init:\n    try:\n        dmx = OpenDMXController()\n        success_init = True\n    except Exception as e:\n        print(\"Error: \", e)\n        print(\"Waiting for USB UART FTI dmx controller \", e)\n        sleep(5)\nfixture1: StairvilleFixture = dmx.add_fixture(",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "wb",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "revenue_data",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "fines_data",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "fines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "inflation_data",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "inflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255, 1/200)\nfixture2.dim(255, 1)\ndim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "dim_speed",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "dim_speed = 0.01\n#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "#color_transition_time",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "#color_transition_time = 1\ncolor_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "color_transition_time",
+        "kind": 5,
+        "importPath": "main",
+        "description": "main",
+        "peekOfCode": "color_transition_time = 1\nwhile True:\n    prev_color = (0, 0, 0)\n    for i in range(0, len(revenue_data)):\n        revenue_data_point = revenue_data[i]\n        fines_data_point = fines_data[i]\n        inflation_data_point = inflation_data[i]\n        new_color_uv = (\n            revenue_data.to_uv(revenue_data_point) * 255,\n            fines_data.to_uv(fines_data_point) * 255,",
+        "detail": "main",
+        "documentation": {}
+    },
+    {
+        "label": "display_color",
+        "kind": 2,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "def display_color(color):\n    fixture2.color(color, )\n    fixture1.color(color, )\ndef gradient_from_to(from_color: tuple[int, int, int], to_color: tuple[int, int, int], steps):\n    if steps < 3:\n        steps = 3\n    for i in range(0, int(steps/3)):\n        yield from_color\n        update_plot_non_blocking(from_color[0], from_color[1], from_color[2])\n    for i in range(0, int(steps/3)):",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "gradient_from_to",
+        "kind": 2,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "def gradient_from_to(from_color: tuple[int, int, int], to_color: tuple[int, int, int], steps):\n    if steps < 3:\n        steps = 3\n    for i in range(0, int(steps/3)):\n        yield from_color\n        update_plot_non_blocking(from_color[0], from_color[1], from_color[2])\n    for i in range(0, int(steps/3)):\n        c = interpolate(from_color, to_color, i / int(steps/3))\n        update_plot_non_blocking(c[0], c[1], c[2])\n        yield c",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "success_init",
+        "kind": 5,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "success_init = False\nwhile not success_init:\n    try:\n        dmx = OpenDMXController()\n        success_init = True\n    except Exception as e:\n        print(\"Error: \", e)\n        print(\"Waiting for USB UART FTI dmx controller \", e)\n        sleep(5)\nfixture1: StairvilleFixture = dmx.add_fixture(",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "wb",
+        "kind": 5,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "wb = load_workbook(filename=\"data/data.xlsx\", read_only=True, data_only=True)\nrevenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255)\nfixture2.dim(255)\nfixture2.set_channel('dimmer_speed', 53)\ndim_speed = 0.05\ndim_steps = 30",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "revenue_data",
+        "kind": 5,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "revenue_data = RevenueData(wb)\nfines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255)\nfixture2.dim(255)\nfixture2.set_channel('dimmer_speed', 53)\ndim_speed = 0.05\ndim_steps = 30\ndef display_color(color):",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "fines_data",
+        "kind": 5,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "fines_data = FinesData(wb)\ninflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255)\nfixture2.dim(255)\nfixture2.set_channel('dimmer_speed', 53)\ndim_speed = 0.05\ndim_steps = 30\ndef display_color(color):\n    fixture2.color(color, )",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "inflation_data",
+        "kind": 5,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "inflation_data = InflationData(wb)\nwb.close()\nfixture1.dim(255)\nfixture2.dim(255)\nfixture2.set_channel('dimmer_speed', 53)\ndim_speed = 0.05\ndim_steps = 30\ndef display_color(color):\n    fixture2.color(color, )\n    fixture1.color(color, )",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "dim_speed",
+        "kind": 5,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "dim_speed = 0.05\ndim_steps = 30\ndef display_color(color):\n    fixture2.color(color, )\n    fixture1.color(color, )\ndef gradient_from_to(from_color: tuple[int, int, int], to_color: tuple[int, int, int], steps):\n    if steps < 3:\n        steps = 3\n    for i in range(0, int(steps/3)):\n        yield from_color",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "dim_steps",
+        "kind": 5,
+        "importPath": "main_fade",
+        "description": "main_fade",
+        "peekOfCode": "dim_steps = 30\ndef display_color(color):\n    fixture2.color(color, )\n    fixture1.color(color, )\ndef gradient_from_to(from_color: tuple[int, int, int], to_color: tuple[int, int, int], steps):\n    if steps < 3:\n        steps = 3\n    for i in range(0, int(steps/3)):\n        yield from_color\n        update_plot_non_blocking(from_color[0], from_color[1], from_color[2])",
+        "detail": "main_fade",
+        "documentation": {}
+    },
+    {
+        "label": "update_plot",
+        "kind": 2,
+        "importPath": "plot",
+        "description": "plot",
+        "peekOfCode": "def update_plot(r,g,b):\n    global history\n    global lines\n    # append the new values to the history\n    history[0].append(r)\n    history[1].append(g)\n    history[2].append(b)\n    # update the data of the lines\n    for i, line in enumerate(lines):\n        line.set_data(range(len(history[i])), history[i])",
+        "detail": "plot",
+        "documentation": {}
+    },
+    {
+        "label": "update_plot_non_blocking",
+        "kind": 2,
+        "importPath": "plot",
+        "description": "plot",
+        "peekOfCode": "def update_plot_non_blocking(r,g,b):\n    # update the plot\n    lines = update_plot(r,g,b)\n    # draw the plot\n    plt.draw()\n    # pause to make the plot visible\n    plt.pause(0.01)",
+        "detail": "plot",
+        "documentation": {}
+    },
+    {
+        "label": "history",
+        "kind": 5,
+        "importPath": "plot",
+        "description": "plot",
+        "peekOfCode": "history = [[], [], []]\n# create 3 lines\nlines = [ax.plot([], [])[0] for _ in range(3)]\n# assing colors \nlines[0].set_color('red')\nlines[1].set_color('green')\nlines[2].set_color('blue')\n# display the plot\n# create a function to update the plot\ndef update_plot(r,g,b):",
+        "detail": "plot",
+        "documentation": {}
+    },
+    {
+        "label": "lines",
+        "kind": 5,
+        "importPath": "plot",
+        "description": "plot",
+        "peekOfCode": "lines = [ax.plot([], [])[0] for _ in range(3)]\n# assing colors \nlines[0].set_color('red')\nlines[1].set_color('green')\nlines[2].set_color('blue')\n# display the plot\n# create a function to update the plot\ndef update_plot(r,g,b):\n    global history\n    global lines",
+        "detail": "plot",
         "documentation": {}
     }
 ]
